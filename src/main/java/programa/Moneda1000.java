@@ -1,3 +1,5 @@
+package programa;
+
 /**
  * Monedas de $1000.
  **/

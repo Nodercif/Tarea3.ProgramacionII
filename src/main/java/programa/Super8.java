@@ -1,9 +1,11 @@
+package programa;
+
 /**
- * La clase Super8 genera un dulce de tipo Super8.
+ * La clase programa.Super8 genera un dulce de tipo programa.Super8.
  **/
 public class Super8 extends Dulce {
     /**
-     * Mediante el constructor de Super8 se le asigna un número de serie al dulce.
+     * Mediante el constructor de programa.Super8 se le asigna un número de serie al dulce.
      **/
     public Super8(int serie){
         super(serie);

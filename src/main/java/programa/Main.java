@@ -1,7 +1,9 @@
+package programa;
+
 /**
  * @author Gabriela Muñoz
  * @author Felicia Pino
- * En Main se prueban los casos posibles a la hora de comprar un producto.
+ * En programa.Main se prueban los casos posibles a la hora de comprar un producto.
  */
 public class Main{
     public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {

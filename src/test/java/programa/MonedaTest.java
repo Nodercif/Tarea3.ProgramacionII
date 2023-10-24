@@ -1,3 +1,6 @@
+package programa;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -6,7 +9,7 @@ class MonedaTest {
     @Test
     void serie(){
         Moneda m = new Moneda1000();
-        assertEquals(m,m.getSerie());
+        Assertions.assertEquals(m,m.getSerie());
     }
     @Test
     void moneda500MayorQue100(){
@@ -24,6 +27,6 @@ class MonedaTest {
     void monedasDelMismoValor(){
         Moneda m1 = new Moneda500();
         Moneda m2 = new Moneda500();
-        assertEquals(0, m1.compareTo(m2));
+        Assertions.assertEquals(0, m1.compareTo(m2));
     }
 }

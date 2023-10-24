@@ -1,15 +1,16 @@
+package programa;
+
 /**
- * Monedas de $100.
+ * Monedas de $500.
  **/
-class Moneda100 extends Moneda{
-    public Moneda100(){
+class Moneda500 extends Moneda{
+    public Moneda500(){
         super();
     }
-
     /**
      * @return entrega el valor de la moneda.
      **/
     public int getValor(){
-        return 100;
+        return 500;
     }
 }

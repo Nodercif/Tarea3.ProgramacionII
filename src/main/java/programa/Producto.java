@@ -1,5 +1,7 @@
+package programa;
+
 /**
- * La clase Producto es abstracta y de ella salen los dos tipos de productos que contiene la máquina:
+ * La clase programa.Producto es abstracta y de ella salen los dos tipos de productos que contiene la máquina:
  * Bebidas y Dulces.
  **/
 abstract class Producto {

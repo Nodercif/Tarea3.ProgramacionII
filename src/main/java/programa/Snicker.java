@@ -1,9 +1,11 @@
+package programa;
+
 /**
- * La clase Snicker genera un dulce de tipo Snicker.
+ * La clase programa.Snicker genera un dulce de tipo programa.Snicker.
  **/
 public class Snicker extends Dulce{
     /**
-     * Mediante el constructor de Snicker se le asigna un número de serie al dulce.
+     * Mediante el constructor de programa.Snicker se le asigna un número de serie al dulce.
      **/
     public Snicker(int serie){
         super(serie);

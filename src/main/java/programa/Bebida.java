@@ -1,7 +1,9 @@
+package programa;
+
 /**
- * La clase Bebida es la encargada de generar el producto de tipo bebida junto a un número de serie
+ * La clase programa.Bebida es la encargada de generar el producto de tipo bebida junto a un número de serie
  * que servirá para ser guardada en el respectivo depósito del expendedor.
- * Ésta clase es abstracta y de ella salen 3 tipos de bebidas: Coca-Cola, Sprite y Fanta.
+ * Ésta clase es abstracta y de ella salen 3 tipos de bebidas: Coca-Cola, programa.Sprite y programa.Fanta.
  **/
 abstract class Bebida extends Producto{
     private int serie;

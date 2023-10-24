@@ -1,3 +1,5 @@
+package programa;
+
 /**
  * Excepcion para cuando no queda producto en la máquina expendedora.
  **/

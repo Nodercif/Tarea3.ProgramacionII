@@ -1,5 +1,5 @@
-/**
- * La clase Deposito genera un depósito genérico para los diferentes productos de la máquina expendedora y para
+package programa; /**
+ * La clase programa.Deposito genera un depósito genérico para los diferentes productos de la máquina expendedora y para
  * las monedas.
  **/
 import java.util.ArrayList;

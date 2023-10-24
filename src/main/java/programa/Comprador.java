@@ -1,3 +1,5 @@
+package programa;
+
 /**
  * La clase comprador representa una persona que va a comprar algo, lo compra en el constructor
  * y despues guarda la cantidad de vuelto y el sonido de el producto que consume.

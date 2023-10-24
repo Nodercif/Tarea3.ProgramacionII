@@ -1,3 +1,4 @@
+package programa;
 
 abstract class Dulce extends Producto{
     private int serie;

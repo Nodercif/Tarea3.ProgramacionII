@@ -1,5 +1,7 @@
+package programa;
+
 /**
- * La clase Expendedor muestra el funcionamiento de la máquina expendedora.
+ * La clase programa.Expendedor muestra el funcionamiento de la máquina expendedora.
  **/
 public class Expendedor {
     private Producto producto;
@@ -11,7 +13,7 @@ public class Expendedor {
     private Deposito<Moneda> monVuelto;
 
     /**
-     * El constructor de Expendedor recibe la cantidad de productos que tendrán las bebidas y ducles de cada tipo.
+     * El constructor de programa.Expendedor recibe la cantidad de productos que tendrán las bebidas y ducles de cada tipo.
      * @param numProducto es la cantidad de productos, con ella se inicializan los depositos de cada uno.
      **/
     public Expendedor(int numProducto) {

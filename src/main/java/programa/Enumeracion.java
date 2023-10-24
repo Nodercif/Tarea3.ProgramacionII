@@ -1,5 +1,7 @@
+package programa;
+
 /**
- * La clase Enumeracion le asigna un número identificador y un precio a cada producto de la máquina expendedora.
+ * La clase programa.Enumeracion le asigna un número identificador y un precio a cada producto de la máquina expendedora.
  **/
 public enum Enumeracion {
     COCA_COLA(1, 100),

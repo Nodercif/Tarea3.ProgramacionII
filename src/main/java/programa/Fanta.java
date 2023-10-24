@@ -1,9 +1,11 @@
+package programa;
+
 /**
- * La clase Fanta genera una bebida de tipo Fanta.
+ * La clase programa.Fanta genera una bebida de tipo programa.Fanta.
  **/
 public class Fanta extends Bebida{
     /**
-     * Mediante el constructor de Fanta se le asigna un número de serie a la bebida.
+     * Mediante el constructor de programa.Fanta se le asigna un número de serie a la bebida.
      **/
     public Fanta(int serie){
         super(serie);

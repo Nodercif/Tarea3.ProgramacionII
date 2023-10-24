@@ -1,3 +1,6 @@
+package programa;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,7 +12,7 @@ class DepositoTest {
         depo.addElemento(3);
         depo.addElemento(2);
         depo.addElemento(5);
-        assertEquals(3,depo.getElemento());
+        Assertions.assertEquals(3,depo.getElemento());
     }
     @Test
     void quedarseSinElementos(){

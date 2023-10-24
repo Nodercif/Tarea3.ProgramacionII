@@ -1,3 +1,5 @@
+package programa;
+
 /**
  * Excepcion para cuando la moneda ingresada es incorrecta.
  **/
