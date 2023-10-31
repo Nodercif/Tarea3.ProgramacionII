@@ -1,4 +1,7 @@
 package programa;
+import visual.PanelPrincipal;
+
+import javax.swing.*;
 
 /**
  * @author Gabriela Muñoz
@@ -7,6 +10,10 @@ package programa;
  */
 public class Main{
     public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+        PanelPrincipal panel = new PanelPrincipal();
+        panel.setSize(600,500);
+        panel.setLocation(0,0);
+        panel.setVisible(true);
         //Caso: normal.
         Expendedor e1 = new Expendedor(1);
         Moneda m1 = new Moneda500();
