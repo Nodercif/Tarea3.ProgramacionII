@@ -11,7 +11,7 @@ public class PanelPrincipal extends JPanel {
         super();
         comprador = new PanelComprador();
         expendedor = new PanelExpendedor();
-        this.setBackground(Color.YELLOW);
+        this.setBackground(new Color(255, 255, 204));
     }
 
     public void paint (Graphics g) {

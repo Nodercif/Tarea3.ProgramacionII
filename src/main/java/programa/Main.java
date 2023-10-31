@@ -1,5 +1,6 @@
 package programa;
 import visual.PanelPrincipal;
+import visual.Ventana;
 
 import javax.swing.*;
 
@@ -10,10 +11,11 @@ import javax.swing.*;
  */
 public class Main{
     public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+        Ventana ventana = new Ventana();
         PanelPrincipal panel = new PanelPrincipal();
-        panel.setSize(600,500);
-        panel.setLocation(0,0);
-        panel.setVisible(true);
+        ventana.add(panel);
+        ventana.setVisible(true);
+
         //Caso: normal.
         Expendedor e1 = new Expendedor(1);
         Moneda m1 = new Moneda500();
