@@ -5,10 +5,15 @@ package programa;
  * Ésta clase es abstracta y de ella salen 4 valores de monedas: $100, $500, $1000 y $1500.
  **/
 abstract class Moneda implements Comparable<Moneda>{
+    static private int cantMonedas;
+    private int serie;
     public Moneda(){
+        cantMonedas++;
+        cantMonedas = cantMonedas%999999999;
+        this.serie = cantMonedas;
     }
-    public Moneda getSerie(){
-        return this;
+    public int getSerie(){
+        return this.serie;
     }
     /**
      * Método compareTo:

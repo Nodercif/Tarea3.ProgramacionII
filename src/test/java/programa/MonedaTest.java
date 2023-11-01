@@ -8,8 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class MonedaTest {
     @Test
     void serie(){
-        Moneda m = new Moneda1000();
-        Assertions.assertEquals(m,m.getSerie());
+        Moneda m1 = new Moneda1000();
+        Moneda m2 = new Moneda100();
+        Assertions.assertNotEquals(m1.getSerie(),m2.getSerie());
     }
     @Test
     void moneda500MayorQue100(){

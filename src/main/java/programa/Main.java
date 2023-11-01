@@ -21,6 +21,7 @@ public class Main{
         Moneda m1 = new Moneda500();
         Comprador c1 = new Comprador(m1, Enumeracion.COCA_COLA, e1);
         System.out.println("El producto escogido es: " + c1.queBebiste() + "." + "\nSu vuelto es de: $" + c1.cuantoVuelto() + ".\n");
+        System.out.println("Numero de serie de la moneda: "+m1.getSerie());
 
         //Caso: moneda insuficiente.
         try {
