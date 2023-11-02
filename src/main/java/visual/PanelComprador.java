@@ -3,7 +3,10 @@ package visual;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import programa.Moneda100;
 import programa.Moneda500;
+import programa.Moneda1000;
+import programa.Moneda1500;
 
 public class PanelComprador extends JPanel {
     private JPanel panelMonedero;
@@ -19,7 +22,7 @@ public class PanelComprador extends JPanel {
         constraints.fill = GridBagConstraints.BOTH;
         constraints.weightx = 1;
         constraints.weighty = 1;
-        constraints.insets = new Insets(30,30,10,80);
+        constraints.insets = new Insets(30,30,10,120);
 
         panelMonedero = new JPanel();
         panelMonedero.setBackground(new Color(100,60,40));
@@ -27,8 +30,24 @@ public class PanelComprador extends JPanel {
         constraints.gridy = 1;
         panelMochila = new JPanel();
         this.add(panelMochila,constraints);
-        for(int i = 0; i<9; i++){
+        panelMochila.setBackground(new Color(180,60,70));
+        for(int i = 0; i<2; i++){
             MonedaVisual m = new MonedaVisual(new Moneda500());
+            m.setVisible(true);
+            panelMonedero.add(m);
+        }
+        for(int i = 0; i<2; i++){
+            MonedaVisual m = new MonedaVisual(new Moneda100());
+            m.setVisible(true);
+            panelMonedero.add(m);
+        }
+        for(int i = 0; i<2; i++){
+            MonedaVisual m = new MonedaVisual(new Moneda1500());
+            m.setVisible(true);
+            panelMonedero.add(m);
+        }
+        for(int i = 0; i<2; i++){
+            MonedaVisual m = new MonedaVisual(new Moneda1000());
             m.setVisible(true);
             panelMonedero.add(m);
         }
