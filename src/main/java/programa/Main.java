@@ -14,7 +14,7 @@ public class Main{
         ventana.add(panel);
         ventana.setVisible(true);
 
-        //Caso: normal.
+        /*//Caso: normal.
         Expendedor e1 = new Expendedor(1);
         Moneda m1 = new Moneda500();
         Comprador c1 = new Comprador(m1, SeleccionProducto.COCA_COLA, e1);
@@ -48,6 +48,6 @@ public class Main{
             System.out.println("El producto escogido es: " + c4.queBebiste() + "." + "\nSu vuelto es de: $" + c4.cuantoVuelto() + ".\n");
         } catch(Exception PagoIncorrectoException) {
             System.out.println("El pago ingresado es incorrecto.\n");
-        }
+        }*/
     }
 }

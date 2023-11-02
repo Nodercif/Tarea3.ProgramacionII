@@ -15,6 +15,12 @@ public class PanelExpendedor extends JPanel {
     private PanelDeposito depositoMonedas;
     private PanelDeposito depositoVuelto;
     private JPanel receptaculo;//Deberia poner un mejor nombre. el custion de donde se saca lo que compraste
+    private JButton cocacola = new JButton();
+    private JButton sprite = new JButton();
+    private JButton fanta = new JButton();
+    private JButton snicker = new JButton();
+    private JButton super8 = new JButton();
+
     private Expendedor exp;
 
     public PanelExpendedor(int numProductos){
@@ -23,9 +29,15 @@ public class PanelExpendedor extends JPanel {
         this.setLayout(null);
         panelMoneda = new JPanel();
         //TODO posicion del panel de la moneda
+        panelMoneda.setBounds(100, 100, 500, 1000);
         this.add(panelMoneda);
+
         panelBotones = new JPanel(new GridLayout(6,1));
         //TODO poner botones al panel de botones y definir la posicion
+        //cocacola.setBounds();
+        panelBotones.setBackground(Color.GRAY);
+        panelBotones.setVisible(true);
+
         this.add(panelBotones);
         panelDepositos = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
