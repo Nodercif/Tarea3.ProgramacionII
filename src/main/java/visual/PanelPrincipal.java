@@ -10,13 +10,14 @@ public class PanelPrincipal extends JPanel {
     public  PanelPrincipal(){
         super();
         comprador = new PanelComprador();
-        expendedor = new PanelExpendedor();
+        expendedor = new PanelExpendedor(6);
         this.setBackground(new Color(255, 255, 204));
+        this.setLayout(new GridLayout(1,2));
+        this.add(comprador);
+        this.add(expendedor);
     }
 
     public void paint (Graphics g) {
         super.paint(g);
-        comprador.paint(g);
-        expendedor.paint(g);
     }
 }
