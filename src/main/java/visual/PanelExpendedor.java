@@ -11,7 +11,7 @@ public class PanelExpendedor extends JPanel {
     private JPanel panelMoneda;
     private MonedaVisual moneda;
     private JPanel panelDepositos;
-    private JPanel panelBotones;
+    private JPanel  panelBotones;
     private PanelDeposito depositoMonedas;
     private PanelDeposito depositoVuelto;
     private JPanel receptaculo;//Deberia poner un mejor nombre. el custion de donde se saca lo que compraste
