@@ -6,8 +6,10 @@ import programa.Moneda;
 import programa.SeleccionProducto;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class PanelExpendedor extends JPanel {
+public class PanelExpendedor extends JPanel implements ActionListener {
     private JPanel panelMoneda;
     private MonedaVisual moneda;
     private JPanel panelDepositos;
@@ -15,6 +17,12 @@ public class PanelExpendedor extends JPanel {
     private PanelDeposito depositoMonedas;
     private PanelDeposito depositoVuelto;
     private JPanel receptaculo;//Deberia poner un mejor nombre. el custion de donde se saca lo que compraste
+    private JButton cocacola = new JButton();
+    private JButton sprite = new JButton();
+    private JButton fanta = new JButton();
+    private JButton snicker = new JButton();
+    private JButton super8 = new JButton();
+
     private Expendedor exp;
 
     public PanelExpendedor(int numProductos){
@@ -23,9 +31,23 @@ public class PanelExpendedor extends JPanel {
         this.setLayout(null);
         panelMoneda = new JPanel();
         //TODO posicion del panel de la moneda
+        panelMoneda.setBounds(getX(), 300, 40, 40);
         this.add(panelMoneda);
+
         panelBotones = new JPanel(new GridLayout(6,1));
         //TODO poner botones al panel de botones y definir la posicion
+        //cocacola.setBounds();
+        panelBotones.setBounds(0, 0, 1000, 1000);
+        panelBotones.setBackground(Color.GRAY);
+        panelBotones.setVisible(true);
+
+
+        cocacola.setBounds(0, 100, 100, 30);
+        cocacola.addActionListener(this);
+        cocacola.setText("Coca-Cola");
+        cocacola.setFocusable(false);
+        cocacola.setVisible(true);
+
         this.add(panelBotones);
         panelDepositos = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -51,5 +73,11 @@ public class PanelExpendedor extends JPanel {
         panelMoneda.add(moneda);
         return ret;
     }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+
     public JPanel getReceptaculo(){return receptaculo;}
+
 }
