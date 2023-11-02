@@ -19,8 +19,8 @@ public class Comprador{
     public Comprador(Moneda m, SeleccionProducto seleccionProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         Producto producto;
         try{
-            producto = exp.comprarProducto(m, seleccionProducto);
-
+            exp.comprarProducto(m, seleccionProducto);
+            producto = exp.getProducto();
             if (producto != null) {
                 m = exp.getVuelto();
                 vuelto = 0;

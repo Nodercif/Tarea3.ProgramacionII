@@ -15,22 +15,25 @@ class ExpendedorTest {
     }
     @Test
     void comprarSnickers() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        Producto snick = exp.comprarProducto(new Moneda1500(), SeleccionProducto.SNICKER);
+        exp.comprarProducto(new Moneda1500(), SeleccionProducto.SNICKER);
+        Producto snick = exp.getProducto();
         assertTrue(snick instanceof Snicker);
     }
     @Test
     void comprarCoca() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        Producto coc =exp.comprarProducto(new Moneda1500(), SeleccionProducto.COCA_COLA);
+        exp.comprarProducto(new Moneda1500(), SeleccionProducto.COCA_COLA);
+        Producto coc = exp.getProducto();
         assertTrue(coc instanceof CocaCola);
     }
     @Test
     void comprarSinVuelto() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        Producto prod = exp.comprarProducto(new Moneda100(), SeleccionProducto.COCA_COLA);
+        exp.comprarProducto(new Moneda100(), SeleccionProducto.COCA_COLA);
+        Producto prod = exp.getProducto();
         assertNull(exp.getVuelto());
     }
     @Test
     void vueltoDe200() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        Producto prod = exp.comprarProducto(new Moneda500(), SeleccionProducto.FANTA);
+        exp.comprarProducto(new Moneda500(), SeleccionProducto.FANTA);
         Moneda v = exp.getVuelto();
         int vuelto = 0;
         while(v != null){
@@ -41,7 +44,7 @@ class ExpendedorTest {
     }
     @Test
     void vueltoDe1300() throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
-        Producto prod = exp.comprarProducto(new Moneda1500(), SeleccionProducto.SPRITE);
+        exp.comprarProducto(new Moneda1500(), SeleccionProducto.SPRITE);
         Moneda v = exp.getVuelto();
         int vuelto = 0;
         while(v != null){
@@ -54,7 +57,7 @@ class ExpendedorTest {
     void dineroInsuficiente() throws NoHayProductoException, PagoIncorrectoException {
         Moneda m = new Moneda100();
         try{
-            Producto prod = exp.comprarProducto(m, SeleccionProducto.SUPER8);
+            exp.comprarProducto(m, SeleccionProducto.SUPER8);
             fail("se esperaba la excepcion programa.PagoInsuficienteException");
         }catch (PagoInsuficienteException e){
             Assertions.assertEquals(m,exp.getVuelto());
