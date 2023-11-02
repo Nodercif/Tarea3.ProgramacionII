@@ -27,11 +27,11 @@ public class Expendedor {
         monVuelto = new Deposito<Moneda>();
         depositoMonedas = new Deposito<Moneda>();
         for (int i = 0; i < numProducto; i++) {
-                coca.addElemento(new CocaCola(i));
-                sprite.addElemento(new Sprite(i));
-                fanta.addElemento(new Fanta(i));
-                snicker.addElemento(new Snicker(i));
-                super8.addElemento(new Super8(i));
+                coca.addElemento(new CocaCola());
+                sprite.addElemento(new Sprite());
+                fanta.addElemento(new Fanta());
+                snicker.addElemento(new Snicker());
+                super8.addElemento(new Super8());
         }
     }
 

@@ -5,9 +5,12 @@ package programa;
  * Bebidas y Dulces.
  **/
 public abstract class Producto {
+    static private int cantProductos;
     private int serie;
-    public Producto(int serie){
-        this.serie = serie;
+    public Producto(){
+        cantProductos++;
+        cantProductos = cantProductos%999999999;
+        this.serie = cantProductos;
     }
     public int getSerie(){
         return serie;

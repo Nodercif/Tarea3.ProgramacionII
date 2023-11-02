@@ -7,8 +7,8 @@ class Sprite extends Bebida{
     /**
      * Mediante el constructor de programa.Sprite se le asigna un número de serie a la bebida.
      **/
-    public Sprite(int serie){
-        super(serie);
+    public Sprite(){
+        super();
     }
     /**
      * Método beber:
