@@ -1,6 +1,8 @@
 package visual;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import programa.Expendedor;
 import programa.Moneda;
 import programa.SeleccionProducto;
@@ -36,26 +38,34 @@ public class PanelExpendedor extends JPanel implements ActionListener {
 
         panelBotones = new JPanel(new GridLayout(6,1));
         //TODO poner botones al panel de botones y definir la posicion
-        //cocacola.setBounds();
-        panelBotones.setBounds(0, 0, 1000, 1000);
+        panelBotones.setBounds(getX()+300, 100, 40, 300);
         panelBotones.setBackground(Color.GRAY);
         panelBotones.setVisible(true);
 
 
-        cocacola.setBounds(0, 100, 100, 30);
+        cocacola.setBounds(0, 100, 70, 30);
         cocacola.addActionListener(this);
         cocacola.setText("Coca-Cola");
         cocacola.setFocusable(false);
         cocacola.setVisible(true);
 
         this.add(panelBotones);
+
         panelDepositos = new JPanel(new GridBagLayout());
+        panelDepositos.setBounds(100,100,200,300);
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+        panelDepositos.setBorder(border);
+        this.add(panelDepositos);
         GridBagConstraints constraints = new GridBagConstraints();
-        //TODO set the constraints
+        constraints.gridy=0; constraints.gridx=0;
+        constraints.weightx=1; constraints.weighty=1;
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.insets = new Insets(5,0,5,0);
         for(SeleccionProducto tipo : SeleccionProducto.values()){
             //TODO hay que ponerlse los constraints a cada uno
             PanelDeposito dep = new PanelDeposito(exp.getDeposito(tipo), tipo);
             panelDepositos.add(dep,constraints);
+            constraints.gridy += 1;
         }
 
     }
