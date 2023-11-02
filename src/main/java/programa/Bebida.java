@@ -5,7 +5,7 @@ package programa;
  * que servirá para ser guardada en el respectivo depósito del expendedor.
  * Ésta clase es abstracta y de ella salen 3 tipos de bebidas: Coca-Cola, programa.Sprite y programa.Fanta.
  **/
-abstract class Bebida extends Producto{
+public abstract class Bebida extends Producto{
     private int serie;
     /**
      * El contructor es el encargado de asignar el número de serie a la bebida.

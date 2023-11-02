@@ -1,6 +1,6 @@
 package programa;
 
-abstract class Dulce extends Producto{
+public abstract class Dulce extends Producto{
     private int serie;
 
     public Dulce(int serie){

@@ -3,7 +3,7 @@ package programa;
 /**
  * La clase programa.CocaCola genera una bebida de tipo Coca-Cola.
  * */
-class CocaCola extends Bebida{
+public class CocaCola extends Bebida{
     /**
      * Mediante el constructor de programa.CocaCola se le asigna un número de serie a la bebida.
      * */
