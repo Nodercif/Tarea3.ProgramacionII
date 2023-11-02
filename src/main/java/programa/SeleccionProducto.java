@@ -1,9 +1,9 @@
 package programa;
 
 /**
- * La clase programa.Enumeracion le asigna un número identificador y un precio a cada producto de la máquina expendedora.
+ * La clase programa.SeleccionProducto le asigna un número identificador y un precio a cada producto de la máquina expendedora.
  **/
-public enum Enumeracion {
+public enum SeleccionProducto {
     COCA_COLA(1, 100),
     SPRITE(2, 200),
     FANTA(3, 300),
@@ -16,7 +16,7 @@ public enum Enumeracion {
      * @param tipo es el identificador del producto.
      * @param precio es el precio del prodcuto.
      **/
-    Enumeracion(int tipo, int precio){
+    SeleccionProducto(int tipo, int precio){
         this.tipo = tipo;
         this.precio = precio;
     }

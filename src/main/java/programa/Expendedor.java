@@ -36,25 +36,25 @@ public class Expendedor {
      * El método comprarProducto realiza la compra del producto y revisa cada caso posible según la moneda que se
      * le ingresa y según el producto que se pide.
      * @param moneda es la moneda que fue ingresada en la máquina.
-     * @param enumeracion es el tipo de producto que se pidió.
+     * @param seleccionProducto es el tipo de producto que se pidió.
      * @return devuelve el prodcuto que se obtuvo de la máquina, este puede ser de tipo bebida o dulce.
      * @throws NoHayProductoException ocurre cuando a la máquina no le queda el producto que se trata de comprar.
      * @throws PagoInsuficienteException la moneda que se inserta no es suficiente para comprar el producto.
      * @throws PagoIncorrectoException se le paso una moneda nula, no hay moneda.
      **/
-    public Producto comprarProducto(Moneda moneda, Enumeracion enumeracion) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+    public Producto comprarProducto(Moneda moneda, SeleccionProducto seleccionProducto) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         if(moneda == null){
             throw new PagoIncorrectoException("Pago incorrecto.");
         }
         int valorMoneda = moneda.getValor();
-        if (valorMoneda < enumeracion.getPrecio()) {
+        if (valorMoneda < seleccionProducto.getPrecio()) {
             monVuelto.addElemento(moneda);
             throw new PagoInsuficienteException("Pago insuficiente.");
         }
 
         Bebida b = null;
         Dulce d = null;
-        switch (enumeracion) {
+        switch (seleccionProducto) {
             case COCA_COLA:
                 b = coca.getElemento();
                 break;
@@ -72,12 +72,12 @@ public class Expendedor {
         }
 
         if(b != null) {
-            if(valorMoneda == enumeracion.getPrecio()){
+            if(valorMoneda == seleccionProducto.getPrecio()){
                 producto = b;
                 return b;
             }
             else {
-                valorMoneda -= enumeracion.getPrecio();
+                valorMoneda -= seleccionProducto.getPrecio();
                 while (valorMoneda != 0) {
                     monVuelto.addElemento(new Moneda100());
                     valorMoneda = valorMoneda - 100;
@@ -87,12 +87,12 @@ public class Expendedor {
             }
         }
         else if(d != null) {
-            if(valorMoneda == enumeracion.getPrecio()){
+            if(valorMoneda == seleccionProducto.getPrecio()){
                 producto = d;
                 return d;
             }
             else {
-                valorMoneda -= enumeracion.getPrecio();
+                valorMoneda -= seleccionProducto.getPrecio();
                 while (valorMoneda != 0) {
                     monVuelto.addElemento(new Moneda100());
                     valorMoneda = valorMoneda - 100;
