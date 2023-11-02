@@ -5,11 +5,11 @@ package programa;
  **/
 public class Expendedor {
     private Producto producto;
-    private Deposito<Bebida> coca;
-    private Deposito<Bebida> sprite;
-    private Deposito<Bebida> fanta;
-    private Deposito<Dulce> snicker;
-    private Deposito<Dulce> super8;
+    private Deposito<Producto> coca;
+    private Deposito<Producto> sprite;
+    private Deposito<Producto> fanta;
+    private Deposito<Producto> snicker;
+    private Deposito<Producto> super8;
     private Deposito<Moneda> monVuelto;
 
     private Deposito<Moneda> depositoMonedas;
@@ -19,11 +19,11 @@ public class Expendedor {
      * @param numProducto es la cantidad de productos, con ella se inicializan los depositos de cada uno.
      **/
     public Expendedor(int numProducto) {
-        coca = new Deposito<Bebida>();
-        sprite = new Deposito<Bebida>();
-        fanta = new Deposito<Bebida>();
-        snicker = new Deposito<Dulce>();
-        super8 = new Deposito<Dulce>();
+        coca = new Deposito<Producto>();
+        sprite = new Deposito<Producto>();
+        fanta = new Deposito<Producto>();
+        snicker = new Deposito<Producto>();
+        super8 = new Deposito<Producto>();
         monVuelto = new Deposito<Moneda>();
         depositoMonedas = new Deposito<Moneda>();
         for (int i = 0; i < numProducto; i++) {
@@ -108,5 +108,27 @@ public class Expendedor {
         Producto ret = producto;
         producto = null;
         return ret;
+    }
+
+    /**
+     * Este metodo es para uso de paquetes de display, para tener la informacion interna del los depositos
+     * @param tipo el tipo de producto del deposito que se quiere
+     * @return el deposito del tipo seleccionado
+     */
+    public Deposito<Producto> getDeposito(SeleccionProducto tipo){
+        switch(tipo){
+            case COCA_COLA:
+                return coca;
+            case SPRITE:
+                return sprite;
+            case FANTA:
+                return fanta;
+            case SNICKER:
+                return snicker;
+            case SUPER8:
+                return super8;
+            default:
+                return null;
+        }
     }
 }
