@@ -4,7 +4,7 @@ package programa;
  * La clase programa.Moneda es la encargada de generar las monedas que se pueden utilizar.
  * Ésta clase es abstracta y de ella salen 4 valores de monedas: $100, $500, $1000 y $1500.
  **/
-abstract class Moneda implements Comparable<Moneda>{
+public abstract class Moneda implements Comparable<Moneda>{
     static private int cantMonedas;
     private int serie;
     public Moneda(){
