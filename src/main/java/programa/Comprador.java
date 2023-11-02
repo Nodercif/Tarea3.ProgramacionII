@@ -10,17 +10,17 @@ public class Comprador{
     /**
      * El constructor es cuando el comprador compra un producto.
      * @param m se le entrega la moneda con la cual va a comprar.
-     * @param enumeracion el tipo de producto que el comprador va a tratar de comprar.
+     * @param seleccionProducto el tipo de producto que el comprador va a tratar de comprar.
      * @param exp la maquina expendedora a la cual tratara de comprarle el producto.
      * @throws NoHayProductoException ocurre cuando a la maquina no le queda el producto que trata de comprar.
      * @throws PagoInsuficienteException la moneda que se inserta no es suficiente para comprar el producto.
      * @throws PagoIncorrectoException se le paso una moneda nula, no hay moneda.
      */
-    public Comprador(Moneda m, Enumeracion enumeracion, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+    public Comprador(Moneda m, SeleccionProducto seleccionProducto, Expendedor exp) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
         Producto producto;
         try{
-            producto = exp.comprarProducto(m, enumeracion);
-
+            exp.comprarProducto(m, seleccionProducto);
+            producto = exp.getProducto();
             if (producto != null) {
                 m = exp.getVuelto();
                 vuelto = 0;
