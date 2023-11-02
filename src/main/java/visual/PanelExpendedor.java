@@ -41,14 +41,15 @@ public class PanelExpendedor extends JPanel {
     /**
      * Se le pasa una moneda para tener como seleccion para usar en la compra.
      * La idea es intercambiar la moneda nueva con la que ya estaba seleccionada, si ya habia una seleccionada,claro.
-     * @param mon la moneda que se quiere seleccionar
+     * @param secMon la moneda que se quiere seleccionar
      * @return la moneda que ya estaba seleccionada
      */
-    public MonedaVisual seleccionarMoneda(MonedaVisual mon){
+    public MonedaVisual seleccionarMoneda(MonedaVisual secMon){
         MonedaVisual ret = this.moneda;
         if(this.moneda != null)panelMoneda.remove(this.moneda);
-        this.moneda = mon;
+        this.moneda = secMon;
         panelMoneda.add(moneda);
         return ret;
     }
+    public JPanel getReceptaculo(){return receptaculo;}
 }
