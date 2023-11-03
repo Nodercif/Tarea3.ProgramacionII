@@ -5,6 +5,7 @@ import javax.swing.border.Border;
 
 import programa.Expendedor;
 import programa.Moneda;
+import programa.Moneda500;
 import programa.SeleccionProducto;
 
 import java.awt.*;
@@ -31,9 +32,8 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         super();
         exp = new Expendedor(numProductos);
         this.setLayout(null);
-        panelMoneda = new JPanel();
-        //TODO posicion del panel de la moneda
-        panelMoneda.setBounds(getX(), 300, 40, 40);
+        panelMoneda = new JPanel(new GridLayout());
+        panelMoneda.setBounds(getX(), 300, 60, 60);
         this.add(panelMoneda);
 
         panelBotones = new JPanel(new GridLayout(6,1));
@@ -50,7 +50,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         cocacola.setVisible(true);
 
         this.add(panelBotones);
-
+        //panel de depositos
         panelDepositos = new JPanel(new GridBagLayout());
         panelDepositos.setBounds(100,100,200,300);
         Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
@@ -79,8 +79,10 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     public MonedaVisual seleccionarMoneda(MonedaVisual secMon){
         MonedaVisual ret = this.moneda;
         if(this.moneda != null)panelMoneda.remove(this.moneda);
+        else System.out.println("moneda en panel es null");
         this.moneda = secMon;
         panelMoneda.add(moneda);
+        panelMoneda.revalidate();
         return ret;
     }
     @Override
