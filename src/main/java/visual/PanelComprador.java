@@ -76,6 +76,7 @@ public class PanelComprador extends JPanel {
                     panelMonedero.add(monedaDeseleccionada);
                 }
                 panelMonedero.revalidate();
+                super.repaint();
             }
         }
         JPanel r = expendedor.getReceptaculo();//El panel del compartimiente del que se saca el producto

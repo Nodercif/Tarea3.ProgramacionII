@@ -3,16 +3,13 @@ package visual;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import programa.Expendedor;
-import programa.Moneda;
-import programa.Moneda500;
-import programa.SeleccionProducto;
+import programa.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PanelExpendedor extends JPanel implements ActionListener {
+public class PanelExpendedor extends JPanel {
     private JPanel panelMoneda;
     private MonedaVisual moneda;
     private JPanel panelDepositos;
@@ -20,16 +17,18 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     private PanelDeposito depositoMonedas;
     private PanelDeposito depositoVuelto;
     private JPanel receptaculo;//Deberia poner un mejor nombre. el custion de donde se saca lo que compraste
-    private JButton cocacola = new JButton();
-    private JButton sprite = new JButton();
-    private JButton fanta = new JButton();
-    private JButton snicker = new JButton();
-    private JButton super8 = new JButton();
+    private JButton cocacolaButton = new JButton();
+    private JButton spriteButton = new JButton();
+    private JButton fantaButton = new JButton();
+    private JButton snickerButton = new JButton();
+    private JButton super8Button = new JButton();
+    private String EDisplayMessage;
 
     private Expendedor exp;
 
     public PanelExpendedor(int numProductos){
         super();
+        EDisplayMessage = "compre producto! :)";
         exp = new Expendedor(numProductos);
         this.setLayout(null);
         panelMoneda = new JPanel(new GridLayout());
@@ -38,18 +37,31 @@ public class PanelExpendedor extends JPanel implements ActionListener {
 
         panelBotones = new JPanel(new GridLayout(6,1));
         //TODO poner botones al panel de botones y definir la posicion
-        panelBotones.setBounds(getX()+300, 100, 40, 300);
+        panelBotones.setBounds(getX()+300, 100, 60, 300);
         panelBotones.setBackground(Color.GRAY);
         panelBotones.setVisible(true);
 
-
-        cocacola.setBounds(0, 100, 70, 30);
-        cocacola.addActionListener(this);
-        cocacola.setText("Coca-Cola");
-        cocacola.setFocusable(false);
-        cocacola.setVisible(true);
-
         this.add(panelBotones);
+
+        cocacolaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                comprar(SeleccionProducto.COCA_COLA);
+            }
+        });
+        cocacolaButton.setText("Coca-Cola");
+        cocacolaButton.setFocusable(false);
+        panelBotones.add(cocacolaButton);
+        spriteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                comprar(SeleccionProducto.SPRITE);
+            }
+        });
+        spriteButton.setText("Coca-Cola");
+        spriteButton.setFocusable(false);
+        panelBotones.add(spriteButton);
+
         //panel de depositos
         panelDepositos = new JPanel(new GridBagLayout());
         panelDepositos.setBounds(100,100,200,300);
@@ -62,11 +74,11 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         constraints.fill = GridBagConstraints.BOTH;
         constraints.insets = new Insets(5,0,5,0);
         for(SeleccionProducto tipo : SeleccionProducto.values()){
-            //TODO hay que ponerlse los constraints a cada uno
             PanelDeposito dep = new PanelDeposito(exp.getDeposito(tipo), tipo);
             panelDepositos.add(dep,constraints);
             constraints.gridy += 1;
         }
+        
 
     }
 
@@ -83,11 +95,26 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         this.moneda = secMon;
         panelMoneda.add(moneda);
         panelMoneda.revalidate();
+        super.repaint();
         return ret;
     }
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
+    private void comprar(SeleccionProducto prod){
+        try{
+            Moneda m = null;
+            if(moneda != null) m = moneda.getMoneda();
+            exp.comprarProducto(m,prod);
+            panelMoneda.remove(moneda);
+            moneda = null;
+        }catch(NoHayProductoException e){
+            EDisplayMessage = e.getMessage();
+        }catch(PagoInsuficienteException e){
+            EDisplayMessage = e.getMessage();
+        }catch(PagoIncorrectoException e){
+            EDisplayMessage = e.getMessage();
+        }finally {
+            repaint();
+        }
     }
 
     public JPanel getReceptaculo(){return receptaculo;}
