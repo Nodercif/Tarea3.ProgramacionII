@@ -23,17 +23,21 @@ public class MonedaVisual extends JLabel {
         if(m instanceof Moneda1500)imgPath = "recursos/moneda1500.png";
 
         //Borrar
-        /*setText(""+m.getSerie());*/
-
+        //de hecho no, la tarea dice que deben mostrar el numero de serie
+        //igual podria ser que se mestre en la terminal al interactuar con la moneda, pero no me tinca tanto
+        //creo que seria mejor hacer el texto mas sutil
+        /*
+        setText(""+m.getSerie());
+        setHorizontalAlignment(JLabel.LEFT);
+        setVerticalAlignment(JLabel.BOTTOM);
+        setForeground(Color.GRAY);
+        setFont(new Font("Arial",Font.BOLD,12));
+        setIconTextGap(3);
+        */
         ImageIcon iconoMoneda = new ImageIcon(imgPath);
         iconoMoneda.setImage(iconoMoneda.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH));
         setIcon(iconoMoneda);
 
-        setHorizontalAlignment(JLabel.LEFT);
-        setVerticalAlignment(JLabel.BOTTOM);
-        setForeground(Color.BLACK);
-        setFont(new Font("Arial",Font.BOLD,16));
-        setIconTextGap(-25);
     }
     public Moneda getMoneda(){return this.moneda;}
 }

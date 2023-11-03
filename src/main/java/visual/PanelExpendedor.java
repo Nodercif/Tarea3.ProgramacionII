@@ -36,11 +36,8 @@ public class PanelExpendedor extends JPanel {
         panelMoneda.setBounds(getX(), 300, 60, 60);
         this.add(panelMoneda);
         //panel de botones
-        panelBotones = new JPanel(new GridLayout(6,1));
-
-        //TODO poner botones al panel de botones y definir la posicion
-        //cocacola.setBounds();
-        panelBotones.setBounds(90, 0, 400, 800);
+        panelBotones = new JPanel(new GridLayout(5,1));
+        panelBotones.setBounds(getX()+320, 100, 150, 350);
         panelBotones.setBackground(Color.GRAY);
         panelBotones.setVisible(true);
 
