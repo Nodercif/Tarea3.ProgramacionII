@@ -36,31 +36,16 @@ public class PanelExpendedor extends JPanel {
         this.add(panelMoneda);
 
         panelBotones = new JPanel(new GridLayout(6,1));
-        //TODO poner botones al panel de botones y definir la posicion
-        panelBotones.setBounds(getX()+300, 100, 60, 300);
+        panelBotones.setBounds(getX()+320, 100, 80, 300);
         panelBotones.setBackground(Color.GRAY);
         panelBotones.setVisible(true);
 
         this.add(panelBotones);
-
-        cocacolaButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                comprar(SeleccionProducto.COCA_COLA);
-            }
-        });
-        cocacolaButton.setText("Coca-Cola");
-        cocacolaButton.setFocusable(false);
-        panelBotones.add(cocacolaButton);
-        spriteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                comprar(SeleccionProducto.SPRITE);
-            }
-        });
-        spriteButton.setText("Coca-Cola");
-        spriteButton.setFocusable(false);
-        panelBotones.add(spriteButton);
+        buttonSetup(cocacolaButton,SeleccionProducto.COCA_COLA,"Coca-Cola");
+        buttonSetup(spriteButton,SeleccionProducto.SPRITE,"Sprite");
+        buttonSetup(fantaButton,SeleccionProducto.FANTA,"Fanta");
+        buttonSetup(snickerButton,SeleccionProducto.SNICKER,"Snicker");
+        buttonSetup(super8Button,SeleccionProducto.SUPER8,"Super8");
 
         //panel de depositos
         panelDepositos = new JPanel(new GridBagLayout());
@@ -78,10 +63,20 @@ public class PanelExpendedor extends JPanel {
             panelDepositos.add(dep,constraints);
             constraints.gridy += 1;
         }
-        
-
     }
-
+    private void buttonSetup(JButton button, SeleccionProducto tipo, String nombre){
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                comprar(tipo);
+            }
+        });
+        button.setText(nombre);
+        button.setFont(new Font("Comic Sans",Font.BOLD,12));
+        button.setMargin(new Insets(5,-3,5,0));
+        button.setFocusable(false);
+        panelBotones.add(button);
+    }
     /**
      * Se le pasa una moneda para tener como seleccion para usar en la compra.
      * La idea es intercambiar la moneda nueva con la que ya estaba seleccionada, si ya habia una seleccionada,claro.

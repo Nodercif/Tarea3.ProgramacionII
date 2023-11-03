@@ -14,8 +14,19 @@ public class PanelDeposito extends JPanel {
     public PanelDeposito(Deposito<Producto> deposito, SeleccionProducto tipo){
         //TODO
         this.deposito = deposito;
-        String filename = "recursos/product.png";
-        imagenProducto = new ImageIcon(filename).getImage().getScaledInstance(20,20,Image.SCALE_SMOOTH);
+        String filename;
+        switch (tipo){
+            case SNICKER:
+                filename = "recursos/snicker.png";
+                break;
+            case COCA_COLA:
+                filename = "recursos/cocacola.png";
+                break;
+            default:
+                filename = "recursos/product.png";
+
+        }
+        imagenProducto = new ImageIcon(filename).getImage().getScaledInstance(30,30,Image.SCALE_SMOOTH);
         Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
         setBorder(border);
     }
@@ -23,8 +34,7 @@ public class PanelDeposito extends JPanel {
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D g2d = (Graphics2D)g;
-        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
-        //g2d.drawImage(imagenProducto,0,0,this);
+        //g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
         if(deposito == null)return;
         if(deposito.getAmount()==0)return;
         float step = (float)getWidth() / deposito.getAmount();
