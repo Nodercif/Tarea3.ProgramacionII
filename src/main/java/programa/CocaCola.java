@@ -7,8 +7,8 @@ public class CocaCola extends Bebida{
     /**
      * Mediante el constructor de programa.CocaCola se le asigna un número de serie a la bebida.
      * */
-    public CocaCola(int serie){
-        super(serie);
+    public CocaCola(){
+        super();
     }
     /**
      * Método beber:

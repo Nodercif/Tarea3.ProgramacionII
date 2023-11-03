@@ -7,8 +7,8 @@ public class Super8 extends Dulce {
     /**
      * Mediante el constructor de programa.Super8 se le asigna un número de serie al dulce.
      **/
-    public Super8(int serie){
-        super(serie);
+    public Super8(){
+        super();
     }
     /**
      * Método comer:

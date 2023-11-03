@@ -7,8 +7,8 @@ public class Snicker extends Dulce{
     /**
      * Mediante el constructor de programa.Snicker se le asigna un número de serie al dulce.
      **/
-    public Snicker(int serie){
-        super(serie);
+    public Snicker(){
+        super();
     }
     /**
      * Método comer:
