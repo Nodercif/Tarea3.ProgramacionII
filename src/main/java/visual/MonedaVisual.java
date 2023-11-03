@@ -22,8 +22,8 @@ public class MonedaVisual extends JLabel {
         if(m instanceof Moneda1000)imgPath = "recursos/moneda1000.png";
         if(m instanceof Moneda1500)imgPath = "recursos/moneda1500.png";
 
-
-        setText(""+m.getSerie());
+        //Borrar
+        /*setText(""+m.getSerie());*/
 
         ImageIcon iconoMoneda = new ImageIcon(imgPath);
         iconoMoneda.setImage(iconoMoneda.getImage().getScaledInstance(50,50,Image.SCALE_SMOOTH));

@@ -37,46 +37,13 @@ public class PanelExpendedor extends JPanel {
         this.add(panelMoneda);
         //panel de botones
         panelBotones = new JPanel(new GridLayout(6,1));
-<<<<<<< HEAD
+
         //TODO poner botones al panel de botones y definir la posicion
         //cocacola.setBounds();
         panelBotones.setBounds(90, 0, 400, 800);
         panelBotones.setBackground(Color.GRAY);
         panelBotones.setVisible(true);
 
-
-        cocacola.addActionListener(this);
-        cocacola.setText("Coca-Cola");
-        cocacola.setVisible(true);
-
-        sprite.addActionListener(this);
-        sprite.setText("Sprite");
-        sprite.setVisible(true);
-
-        fanta.addActionListener(this);
-        fanta.setText("Fanta");
-        fanta.setVisible(true);
-
-        snicker.addActionListener(this);
-        snicker.setText("Snicker");
-        snicker.setVisible(true);
-
-        super8.addActionListener(this);
-        super8.setText("Super 8");
-        super8.setVisible(true);
-
-        panelBotones.add(super8);
-        panelBotones.add(snicker);
-        panelBotones.add(fanta);
-        panelBotones.add(sprite);
-        panelBotones.add(cocacola);
-
-
-=======
-        panelBotones.setBounds(getX()+320, 70, 80, 300);
-        panelBotones.setBackground(Color.GRAY);
-        panelBotones.setVisible(true);
->>>>>>> 50e5032a6654fa8cfe4d282d1ec881ac7bb381d9
         this.add(panelBotones);
         //botones
         buttonSetup(cocacolaButton,SeleccionProducto.COCA_COLA,"Coca-Cola");
