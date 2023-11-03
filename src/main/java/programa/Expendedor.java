@@ -131,4 +131,6 @@ public class Expendedor {
                 return null;
         }
     }
+    public Deposito<Moneda> getDepositoMonedas(){return depositoMonedas;}
+    public Deposito<Moneda> getDepoVuelto(){return monVuelto;}
 }

@@ -60,7 +60,7 @@ public class PanelExpendedor extends JPanel {
         constraints.fill = GridBagConstraints.BOTH;
         constraints.insets = new Insets(5,0,5,0);
         for(SeleccionProducto tipo : SeleccionProducto.values()){
-            PanelDeposito dep = new PanelDeposito(exp.getDeposito(tipo), tipo);
+            PanelDeposito<Producto> dep = new PanelDeposito<Producto>(exp.getDeposito(tipo), tipo);
             dep.setBackground(new Color(70,160,220));
             panelDepositos.add(dep,constraints);
             constraints.gridy += 1;
@@ -71,6 +71,12 @@ public class PanelExpendedor extends JPanel {
         receptaculo.setBounds(getX()+120,550,90,60);
         receptaculo.setVisible(true);
         add(receptaculo);
+        //deposito vuelto
+        depositoVuelto = new PanelDeposito<Moneda>(exp.getDepoVuelto(),"recursos/coin.png");
+        depositoVuelto.setBounds(getX()+250,550,90,60);
+        depositoVuelto.setVisible(true);
+        add(depositoVuelto);
+
     }
     private void buttonSetup(JButton button, SeleccionProducto tipo, String nombre){
         button.addActionListener(new ActionListener() {

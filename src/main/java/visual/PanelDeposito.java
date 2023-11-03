@@ -7,11 +7,19 @@ import programa.Deposito;
 import programa.Producto;
 import programa.SeleccionProducto;
 
-public class PanelDeposito extends JPanel {
+public class PanelDeposito<T> extends JPanel {
     private Image imagenProducto;
-    private Deposito<Producto> deposito;
+    private Deposito<T> deposito;
+    public PanelDeposito(Deposito<T> deposito, String filename){
+        super();
+        this.deposito = deposito;
+        imagenProducto = new ImageIcon(filename).getImage().getScaledInstance(30,30,Image.SCALE_SMOOTH);
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
+        setBorder(border);
+    }
 
-    public PanelDeposito(Deposito<Producto> deposito, SeleccionProducto tipo){
+    public PanelDeposito(Deposito<T> deposito, SeleccionProducto tipo){
+        super();
         this.deposito = deposito;
         String filename;
         switch (tipo){
@@ -48,7 +56,7 @@ public class PanelDeposito extends JPanel {
         float step = (float)getWidth() / deposito.getAmount();
 
         float pos = getWidth()-20;
-        for(Producto p : deposito.getArray()){
+        for(T p : deposito.getArray()){
             g2d.drawImage(imagenProducto,(int)pos,0,this);
             pos-=step;
         }
