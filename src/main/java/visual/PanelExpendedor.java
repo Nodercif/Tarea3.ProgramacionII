@@ -37,16 +37,37 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         panelBotones = new JPanel(new GridLayout(6,1));
         //TODO poner botones al panel de botones y definir la posicion
         //cocacola.setBounds();
-        panelBotones.setBounds(0, 0, 1000, 1000);
+        panelBotones.setBounds(90, 0, 400, 800);
         panelBotones.setBackground(Color.GRAY);
         panelBotones.setVisible(true);
 
 
-        cocacola.setBounds(0, 100, 100, 30);
         cocacola.addActionListener(this);
         cocacola.setText("Coca-Cola");
-        cocacola.setFocusable(false);
         cocacola.setVisible(true);
+
+        sprite.addActionListener(this);
+        sprite.setText("Sprite");
+        sprite.setVisible(true);
+
+        fanta.addActionListener(this);
+        fanta.setText("Fanta");
+        fanta.setVisible(true);
+
+        snicker.addActionListener(this);
+        snicker.setText("Snicker");
+        snicker.setVisible(true);
+
+        super8.addActionListener(this);
+        super8.setText("Super 8");
+        super8.setVisible(true);
+
+        panelBotones.add(super8);
+        panelBotones.add(snicker);
+        panelBotones.add(fanta);
+        panelBotones.add(sprite);
+        panelBotones.add(cocacola);
+
 
         this.add(panelBotones);
         panelDepositos = new JPanel(new GridBagLayout());
