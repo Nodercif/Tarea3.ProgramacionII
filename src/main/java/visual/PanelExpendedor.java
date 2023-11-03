@@ -31,16 +31,17 @@ public class PanelExpendedor extends JPanel {
         EDisplayMessage = "compre producto! :)";
         exp = new Expendedor(numProductos);
         this.setLayout(null);
+        //moneda seleccionada
         panelMoneda = new JPanel(new GridLayout());
         panelMoneda.setBounds(getX(), 300, 60, 60);
         this.add(panelMoneda);
-
+        //panel de botones
         panelBotones = new JPanel(new GridLayout(6,1));
-        panelBotones.setBounds(getX()+320, 100, 80, 300);
+        panelBotones.setBounds(getX()+320, 70, 80, 300);
         panelBotones.setBackground(Color.GRAY);
         panelBotones.setVisible(true);
-
         this.add(panelBotones);
+        //botones
         buttonSetup(cocacolaButton,SeleccionProducto.COCA_COLA,"Coca-Cola");
         buttonSetup(spriteButton,SeleccionProducto.SPRITE,"Sprite");
         buttonSetup(fantaButton,SeleccionProducto.FANTA,"Fanta");
@@ -49,7 +50,7 @@ public class PanelExpendedor extends JPanel {
 
         //panel de depositos
         panelDepositos = new JPanel(new GridBagLayout());
-        panelDepositos.setBounds(100,100,200,300);
+        panelDepositos.setBounds(100,70,200,300);
         Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
         panelDepositos.setBorder(border);
         this.add(panelDepositos);
@@ -60,9 +61,16 @@ public class PanelExpendedor extends JPanel {
         constraints.insets = new Insets(5,0,5,0);
         for(SeleccionProducto tipo : SeleccionProducto.values()){
             PanelDeposito dep = new PanelDeposito(exp.getDeposito(tipo), tipo);
+            dep.setBackground(new Color(70,160,220));
             panelDepositos.add(dep,constraints);
             constraints.gridy += 1;
         }
+        //receptaculo de extaccion
+        receptaculo = new JPanel();
+        receptaculo.setBackground(Color.GRAY);
+        receptaculo.setBounds(getX()+120,550,90,60);
+        receptaculo.setVisible(true);
+        add(receptaculo);
     }
     private void buttonSetup(JButton button, SeleccionProducto tipo, String nombre){
         button.addActionListener(new ActionListener() {

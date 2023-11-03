@@ -12,7 +12,6 @@ public class PanelDeposito extends JPanel {
     private Deposito<Producto> deposito;
 
     public PanelDeposito(Deposito<Producto> deposito, SeleccionProducto tipo){
-        //TODO
         this.deposito = deposito;
         String filename;
         switch (tipo){
@@ -21,6 +20,15 @@ public class PanelDeposito extends JPanel {
                 break;
             case COCA_COLA:
                 filename = "recursos/cocacola.png";
+                break;
+            case FANTA:
+                filename = "recursos/fanta.png";
+                break;
+            case SPRITE:
+                filename = "recursos/sprite.png";
+                break;
+            case SUPER8:
+                filename = "recursos/super8.png";
                 break;
             default:
                 filename = "recursos/product.png";
@@ -34,7 +42,7 @@ public class PanelDeposito extends JPanel {
     public void paint(Graphics g){
         super.paint(g);
         Graphics2D g2d = (Graphics2D)g;
-        //g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.7f));
         if(deposito == null)return;
         if(deposito.getAmount()==0)return;
         float step = (float)getWidth() / deposito.getAmount();
