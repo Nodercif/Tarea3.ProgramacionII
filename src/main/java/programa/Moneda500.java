@@ -3,7 +3,7 @@ package programa;
 /**
  * Monedas de $500.
  **/
-class Moneda500 extends Moneda{
+public class Moneda500 extends Moneda{
     public Moneda500(){
         super();
     }

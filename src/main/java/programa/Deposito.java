@@ -32,4 +32,20 @@ public class Deposito<T>{
             return aux;
         }
     }
+
+    /**
+     *
+     * @return retorna la cantidad de elementos que tiene
+     */
+    public int getAmount(){
+        return var.size();
+    }
+
+    /**
+     * Solo para ver que tiene adentro. No modificar.
+     * @return regreasa el arreglo interno de elementos
+     */
+    public ArrayList<T> getArray(){
+        return var;
+    }
 }
