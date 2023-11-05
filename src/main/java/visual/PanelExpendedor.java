@@ -101,13 +101,21 @@ public class PanelExpendedor extends JPanel {
     public MonedaVisual seleccionarMoneda(MonedaVisual secMon){
         MonedaVisual ret = this.moneda;
         if(this.moneda != null)panelMoneda.remove(this.moneda);
-        else System.out.println("moneda en panel es null");
         this.moneda = secMon;
         panelMoneda.add(moneda);
         panelMoneda.revalidate();
         super.repaint();
         return ret;
     }
+    public MonedaVisual sacarMoneda(){
+        MonedaVisual ret = null;
+        Moneda m = exp.getVuelto();
+        if(m!=null)
+            ret = new MonedaVisual(m);
+        repaint();
+        return ret;
+    }
+    public JPanel getPanelVuelto(){return (JPanel) depositoVuelto;}
 
     private void comprar(SeleccionProducto prod){
         try{

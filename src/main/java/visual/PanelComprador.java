@@ -62,6 +62,7 @@ public class PanelComprador extends JPanel {
     }
 
     public void procesarClick(int x, int y){
+        //revisar si hicimos click en las monedas
         for(Component c : panelMonedero.getComponents()){
             if(! (c instanceof MonedaVisual))continue;
             MonedaVisual secMon = (MonedaVisual) c;
@@ -69,7 +70,6 @@ public class PanelComprador extends JPanel {
             int my = secMon.getY()+panelMonedero.getY();
             boolean clickEnLaMoneda = (x>=mx && x<mx+secMon.getWidth() && y>=my && y<my+ secMon.getHeight());
             if(clickEnLaMoneda){
-
                 //seleccionar la moneda para usar en el expendedor
 
                 MonedaVisual monedaDeseleccionada = expendedor.seleccionarMoneda(secMon);
@@ -81,6 +81,7 @@ public class PanelComprador extends JPanel {
                 super.repaint();
             }
         }
+        //revisar si tratamos de sacar el articulo comprado
         JPanel r = expendedor.getReceptaculo();//El panel del compartimiente del que se saca el producto
         if(r==null)return;
         int rx = r.getX()+expendedor.getX();
@@ -91,6 +92,22 @@ public class PanelComprador extends JPanel {
         if(clickEnElreceptaculo){
             //TODO
             System.out.println("tratamos de sacar algo");
+        }
+        //revisar si tratamos de sacar vuelto
+        JPanel v = expendedor.getPanelVuelto();
+        if(v==null)return;
+        int vx = v.getX()+expendedor.getX();
+        int vy = v.getY()+expendedor.getY();
+        int vw = v.getWidth();
+        int vh = v.getHeight();
+        boolean clickEnDepoMonedas = x>=vx && x<vx+vw && y>=vy && y<vy+vh;
+        if(clickEnDepoMonedas){
+            MonedaVisual m = expendedor.sacarMoneda();
+            if(m!=null) {
+                panelMonedero.add(m);
+                panelMonedero.revalidate();
+                super.repaint();
+            }
         }
     }
 
