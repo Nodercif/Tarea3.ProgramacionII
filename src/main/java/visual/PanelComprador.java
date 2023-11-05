@@ -90,8 +90,10 @@ public class PanelComprador extends JPanel {
         int rh = r.getHeight();
         boolean clickEnElreceptaculo = x>=rx && x<rx+rw && y>=ry && y<ry+rh;
         if(clickEnElreceptaculo){
-            //TODO
-            System.out.println("tratamos de sacar algo");
+            ProductoVisual prod = expendedor.sacarProducto();
+            if(prod != null){
+                panelMochila.add(prod);
+            }
         }
         //revisar si tratamos de sacar vuelto
         JPanel v = expendedor.getPanelVuelto();

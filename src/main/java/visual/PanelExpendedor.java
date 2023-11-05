@@ -128,12 +128,21 @@ public class PanelExpendedor extends JPanel {
         return ret;
     }
     public JPanel getPanelVuelto(){return (JPanel) depositoVuelto;}
+    public ProductoVisual sacarProducto(){
+        if(receptaculo.getComponentCount()<=0)return null;
+        ProductoVisual ret = (ProductoVisual) receptaculo.getComponent(0);
+        receptaculo.remove(ret);
+        return ret;
+    }
+    public JPanel getReceptaculo(){return receptaculo;}
 
     private void comprar(SeleccionProducto prod){
         try{
             Moneda m = null;
             if(this.moneda != null) m = this.moneda.getMoneda();
             exp.comprarProducto(m,prod);
+            if(receptaculo.getComponentCount()>0)receptaculo.remove(0);
+            receptaculo.add(new ProductoVisual(exp.getProducto()));
         }catch(NoHayProductoException e){
             EDisplayMessage.setText("No hay Producto en la máquina");
         }catch(PagoInsuficienteException e){
@@ -149,5 +158,4 @@ public class PanelExpendedor extends JPanel {
         }
     }
 
-    public JPanel getReceptaculo(){return receptaculo;}
 }
