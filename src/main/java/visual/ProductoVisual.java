@@ -32,5 +32,6 @@ public class ProductoVisual extends JLabel {
         //seteamos el icone de este label al icono que acabamos de crear
         this.setIcon(iconoProducto);
     }
-    public Producto getProducto(){return this.producto;}
+    public Producto getProducto(){
+        return this.producto;}
 }

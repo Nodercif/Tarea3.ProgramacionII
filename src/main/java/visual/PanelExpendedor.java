@@ -41,8 +41,8 @@ public class PanelExpendedor extends JPanel {
         panelBotones.setBounds(getX()+320, 100, 150, 350);
         panelBotones.setBackground(Color.GRAY);
         panelBotones.setVisible(true);
-
         this.add(panelBotones);
+
         //botones
         buttonSetup(cocacolaButton,SeleccionProducto.COCA_COLA,"Coca-Cola");
         buttonSetup(spriteButton,SeleccionProducto.SPRITE,"Sprite");
@@ -67,12 +67,14 @@ public class PanelExpendedor extends JPanel {
             panelDepositos.add(dep,constraints);
             constraints.gridy += 1;
         }
+
         //receptaculo de extaccion
         receptaculo = new JPanel();
         receptaculo.setBackground(Color.GRAY);
         receptaculo.setBounds(getX()+120,550,90,60);
         receptaculo.setVisible(true);
         add(receptaculo);
+
         //deposito vuelto
         depositoVuelto = new PanelDeposito<Moneda>(exp.getDepoVuelto());
         depositoVuelto.setBounds(getX()+250,550,90,60);
@@ -88,9 +90,8 @@ public class PanelExpendedor extends JPanel {
         panelMensajeDeError.setBounds(50, 400, 250, 30);
         panelMensajeDeError.add(EDisplayMessage);
         add(panelMensajeDeError);
-
-
     }
+    
     private void buttonSetup(JButton button, SeleccionProducto tipo, String nombre){
         button.addActionListener(new ActionListener() {
             @Override
@@ -129,7 +130,7 @@ public class PanelExpendedor extends JPanel {
     }
     public JPanel getPanelVuelto(){return (JPanel) depositoVuelto;}
     public ProductoVisual sacarProducto(){
-        if(receptaculo.getComponentCount()<=0)return null;
+        if(receptaculo.getComponentCount()<=0) return null;
         ProductoVisual ret = (ProductoVisual) receptaculo.getComponent(0);
         receptaculo.remove(ret);
         return ret;
@@ -145,11 +146,13 @@ public class PanelExpendedor extends JPanel {
             receptaculo.add(new ProductoVisual(exp.getProducto()));
         }catch(NoHayProductoException e){
             EDisplayMessage.setText("No hay Producto en la máquina");
+            repaint();
         }catch(PagoInsuficienteException e){
             EDisplayMessage.setText("El pago ingresado es insuficiente");
             repaint();
         }catch(PagoIncorrectoException e){
             EDisplayMessage.setText("El pago ingresado es incorrecto");
+            repaint();
         }finally {
             if(this.moneda != null)
                 panelMoneda.remove(this.moneda);
