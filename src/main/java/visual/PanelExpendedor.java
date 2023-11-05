@@ -5,16 +5,18 @@ import javax.swing.border.Border;
 
 import programa.*;
 
+import java.awt.Font;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelExpendedor extends JPanel {
     private JPanel panelMoneda;
-    private MonedaVisual moneda;
     private JPanel panelDepositos;
     private JPanel  panelBotones;
+    private JPanel panelMensajeDeError = new JPanel();
     private PanelDeposito depositoMonedas;
+    private MonedaVisual moneda;
     private PanelDeposito depositoVuelto;
     private JPanel receptaculo;//Deberia poner un mejor nombre. el custion de donde se saca lo que compraste
     private JButton cocacolaButton = new JButton();
@@ -22,13 +24,13 @@ public class PanelExpendedor extends JPanel {
     private JButton fantaButton = new JButton();
     private JButton snickerButton = new JButton();
     private JButton super8Button = new JButton();
-    private String EDisplayMessage;
+    private JLabel EDisplayMessage = new JLabel();
 
     private Expendedor exp;
 
     public PanelExpendedor(int numProductos){
         super();
-        EDisplayMessage = "compre producto! :)";
+        EDisplayMessage.setText("compre producto! :)");
         exp = new Expendedor(numProductos);
         this.setLayout(null);
         //moneda seleccionada
@@ -78,6 +80,9 @@ public class PanelExpendedor extends JPanel {
         depositoVuelto.setVisible(true);
         add(depositoVuelto);
 
+        //panel mensaje de error
+        add(panelMensajeDeError);
+
     }
     private void buttonSetup(JButton button, SeleccionProducto tipo, String nombre){
         button.addActionListener(new ActionListener() {
@@ -110,6 +115,10 @@ public class PanelExpendedor extends JPanel {
     }
 
     private void comprar(SeleccionProducto prod){
+        EDisplayMessage.setForeground(new Color(0, 100, 0));
+        EDisplayMessage.setFont("Arial", Font.MONOSPACED, 16);
+        panelMensajeDeError.setBackground(new Color(50, 205, 50));
+        panelMensajeDeError.setBounds(60, 450, 250, 40);
         try{
             Moneda m = null;
             if(moneda != null) m = moneda.getMoneda();
@@ -117,11 +126,13 @@ public class PanelExpendedor extends JPanel {
             panelMoneda.remove(moneda);
             moneda = null;
         }catch(NoHayProductoException e){
-            EDisplayMessage = e.getMessage();
+            EDisplayMessage.setText("Este producto no se encuentra en la máquina expendedora.");
         }catch(PagoInsuficienteException e){
-            EDisplayMessage = e.getMessage();
+            EDisplayMessage.setText("El pago ingresado es insuficiente.");
+            panelMensajeDeError.add(EDisplayMessage);
+            panelMensajeDeError.setVisible(true);
         }catch(PagoIncorrectoException e){
-            EDisplayMessage = e.getMessage();
+            EDisplayMessage.setText("El pago ingresado es incorrecto.");
         }finally {
             repaint();
         }
