@@ -128,5 +128,4 @@ public class PanelExpendedor extends JPanel {
     }
 
     public JPanel getReceptaculo(){return receptaculo;}
-
 }

@@ -1,13 +1,11 @@
 package visual;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class PanelPrincipal extends JPanel {
-    private PanelComprador comprador;
-    private PanelExpendedor expendedor;
+    public PanelPrincipal()  {
 
     public  PanelPrincipal(){
         super();
@@ -27,8 +25,7 @@ public class PanelPrincipal extends JPanel {
             }
         });
     }
-
-    public void paint (Graphics g) {
+    public void paint(Graphics g) {
         super.paint(g);
     }
 }
