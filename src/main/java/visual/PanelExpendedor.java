@@ -61,7 +61,7 @@ public class PanelExpendedor extends JPanel {
         constraints.fill = GridBagConstraints.BOTH;
         constraints.insets = new Insets(5,0,5,0);
         for(SeleccionProducto tipo : SeleccionProducto.values()){
-            PanelDeposito<Producto> dep = new PanelDeposito<Producto>(exp.getDeposito(tipo), tipo);
+            PanelDeposito<Producto> dep = new PanelDeposito<Producto>(exp.getDeposito(tipo));
             dep.setBackground(new Color(70,160,220));
             panelDepositos.add(dep,constraints);
             constraints.gridy += 1;
@@ -73,7 +73,7 @@ public class PanelExpendedor extends JPanel {
         receptaculo.setVisible(true);
         add(receptaculo);
         //deposito vuelto
-        depositoVuelto = new PanelDeposito<Moneda>(exp.getDepoVuelto(),"recursos/coin.png");
+        depositoVuelto = new PanelDeposito<Moneda>(exp.getDepoVuelto());
         depositoVuelto.setBounds(getX()+250,550,90,60);
         depositoVuelto.setVisible(true);
         add(depositoVuelto);
@@ -112,10 +112,8 @@ public class PanelExpendedor extends JPanel {
     private void comprar(SeleccionProducto prod){
         try{
             Moneda m = null;
-            if(moneda != null) m = moneda.getMoneda();
+            if(this.moneda != null) m = this.moneda.getMoneda();
             exp.comprarProducto(m,prod);
-            panelMoneda.remove(moneda);
-            moneda = null;
         }catch(NoHayProductoException e){
             EDisplayMessage = e.getMessage();
         }catch(PagoInsuficienteException e){
@@ -123,6 +121,9 @@ public class PanelExpendedor extends JPanel {
         }catch(PagoIncorrectoException e){
             EDisplayMessage = e.getMessage();
         }finally {
+            if(this.moneda != null)
+                panelMoneda.remove(this.moneda);
+            this.moneda = null;
             repaint();
         }
     }

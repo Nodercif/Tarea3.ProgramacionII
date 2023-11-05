@@ -6,9 +6,6 @@ public abstract class Dulce extends Producto{
     public Dulce(){
         super();
     }
-    public int getSerie(){
-        return serie;
-    }
 
     public abstract String comer();
 }

@@ -33,22 +33,22 @@ public class PanelComprador extends JPanel {
         this.add(panelMochila,constraints);
         panelMochila.setBackground(new Color(180,60,70));
 
-        for(int i = 0; i<2; i++){
+        for(int i = 0; i<3; i++){
             MonedaVisual m = new MonedaVisual(new Moneda500());
             m.setVisible(true);
             panelMonedero.add(m);
         }
-        for(int i = 0; i<2; i++){
+        for(int i = 0; i<4; i++){
             MonedaVisual m = new MonedaVisual(new Moneda100());
             m.setVisible(true);
             panelMonedero.add(m);
         }
-        for(int i = 0; i<2; i++){
+        for(int i = 0; i<3; i++){
             MonedaVisual m = new MonedaVisual(new Moneda1500());
             m.setVisible(true);
             panelMonedero.add(m);
         }
-        for(int i = 0; i<2; i++){
+        for(int i = 0; i<3; i++){
             MonedaVisual m = new MonedaVisual(new Moneda1000());
             m.setVisible(true);
             panelMonedero.add(m);
