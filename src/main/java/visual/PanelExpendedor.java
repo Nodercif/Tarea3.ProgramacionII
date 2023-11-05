@@ -5,16 +5,18 @@ import javax.swing.border.Border;
 
 import programa.*;
 
+import java.awt.Font;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelExpendedor extends JPanel {
     private JPanel panelMoneda;
-    private MonedaVisual moneda;
     private JPanel panelDepositos;
     private JPanel  panelBotones;
+    private JPanel panelMensajeDeError = new JPanel();
     private PanelDeposito depositoMonedas;
+    private MonedaVisual moneda;
     private PanelDeposito depositoVuelto;
     private JPanel receptaculo;//Deberia poner un mejor nombre. el custion de donde se saca lo que compraste
     private JButton cocacolaButton = new JButton();
@@ -22,13 +24,12 @@ public class PanelExpendedor extends JPanel {
     private JButton fantaButton = new JButton();
     private JButton snickerButton = new JButton();
     private JButton super8Button = new JButton();
-    private String EDisplayMessage;
+    private JLabel EDisplayMessage = new JLabel();
 
     private Expendedor exp;
 
     public PanelExpendedor(int numProductos){
         super();
-        EDisplayMessage = "compre producto! :)";
         exp = new Expendedor(numProductos);
         this.setLayout(null);
         //moneda seleccionada
@@ -78,6 +79,17 @@ public class PanelExpendedor extends JPanel {
         depositoVuelto.setVisible(true);
         add(depositoVuelto);
 
+        //panel mensaje de error
+        EDisplayMessage.setText("Compre producto! :)");
+        EDisplayMessage.setHorizontalAlignment(SwingConstants.LEFT);
+        EDisplayMessage.setForeground(new Color(28, 76, 0));
+        EDisplayMessage.setFont(new Font("Monospaced", Font.BOLD, 12));
+        panelMensajeDeError.setBackground(new Color(131, 242, 67));
+        panelMensajeDeError.setBounds(50, 400, 250, 30);
+        panelMensajeDeError.add(EDisplayMessage);
+        add(panelMensajeDeError);
+
+
     }
     private void buttonSetup(JButton button, SeleccionProducto tipo, String nombre){
         button.addActionListener(new ActionListener() {
@@ -123,11 +135,12 @@ public class PanelExpendedor extends JPanel {
             if(this.moneda != null) m = this.moneda.getMoneda();
             exp.comprarProducto(m,prod);
         }catch(NoHayProductoException e){
-            EDisplayMessage = e.getMessage();
+            EDisplayMessage.setText("No hay Producto en la máquina");
         }catch(PagoInsuficienteException e){
-            EDisplayMessage = e.getMessage();
+            EDisplayMessage.setText("El pago ingresado es insuficiente");
+            repaint();
         }catch(PagoIncorrectoException e){
-            EDisplayMessage = e.getMessage();
+            EDisplayMessage.setText("El pago ingresado es incorrecto");
         }finally {
             if(this.moneda != null)
                 panelMoneda.remove(this.moneda);
