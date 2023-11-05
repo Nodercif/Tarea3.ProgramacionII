@@ -30,7 +30,6 @@ public class PanelExpendedor extends JPanel {
 
     public PanelExpendedor(int numProductos){
         super();
-        EDisplayMessage.setText("compre producto! :)");
         exp = new Expendedor(numProductos);
         this.setLayout(null);
         //moneda seleccionada
@@ -81,7 +80,15 @@ public class PanelExpendedor extends JPanel {
         add(depositoVuelto);
 
         //panel mensaje de error
+        EDisplayMessage.setHorizontalAlignment(SwingConstants.LEFT);
+        EDisplayMessage.setText("Compre producto! :)");
+        EDisplayMessage.setForeground(new Color(28, 76, 0));
+        EDisplayMessage.setFont(new Font("Monospaced", Font.BOLD, 12));
+        panelMensajeDeError.setBackground(new Color(131, 242, 67));
+        panelMensajeDeError.setBounds(50, 400, 250, 30);
+        panelMensajeDeError.add(EDisplayMessage);
         add(panelMensajeDeError);
+
 
     }
     private void buttonSetup(JButton button, SeleccionProducto tipo, String nombre){
@@ -115,10 +122,6 @@ public class PanelExpendedor extends JPanel {
     }
 
     private void comprar(SeleccionProducto prod){
-        EDisplayMessage.setForeground(new Color(0, 100, 0));
-        EDisplayMessage.setFont("Arial", Font.MONOSPACED, 16);
-        panelMensajeDeError.setBackground(new Color(50, 205, 50));
-        panelMensajeDeError.setBounds(60, 450, 250, 40);
         try{
             Moneda m = null;
             if(moneda != null) m = moneda.getMoneda();
@@ -126,13 +129,12 @@ public class PanelExpendedor extends JPanel {
             panelMoneda.remove(moneda);
             moneda = null;
         }catch(NoHayProductoException e){
-            EDisplayMessage.setText("Este producto no se encuentra en la máquina expendedora.");
+            EDisplayMessage.setText("Este producto no se encuentra en la máquina expendedora");
         }catch(PagoInsuficienteException e){
-            EDisplayMessage.setText("El pago ingresado es insuficiente.");
-            panelMensajeDeError.add(EDisplayMessage);
-            panelMensajeDeError.setVisible(true);
+            EDisplayMessage.setText("El pago ingresado es insuficiente");
+            repaint();
         }catch(PagoIncorrectoException e){
-            EDisplayMessage.setText("El pago ingresado es incorrecto.");
+            EDisplayMessage.setText("El pago ingresado es incorrecto");
         }finally {
             repaint();
         }
