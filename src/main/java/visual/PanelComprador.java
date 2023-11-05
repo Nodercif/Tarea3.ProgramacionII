@@ -7,6 +7,7 @@ import programa.Moneda100;
 import programa.Moneda500;
 import programa.Moneda1000;
 import programa.Moneda1500;
+import programa.Expendedor;
 
 public class PanelComprador extends JPanel {
     private JPanel panelMonedero;
@@ -31,6 +32,7 @@ public class PanelComprador extends JPanel {
         panelMochila = new JPanel();
         this.add(panelMochila,constraints);
         panelMochila.setBackground(new Color(180,60,70));
+
         for(int i = 0; i<2; i++){
             MonedaVisual m = new MonedaVisual(new Moneda500());
             m.setVisible(true);

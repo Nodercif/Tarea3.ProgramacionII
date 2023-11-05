@@ -24,7 +24,7 @@ public class MonedaVisual extends JLabel {
 
         //Borrar
         //de hecho no, la tarea dice que deben mostrar el numero de serie
-        //igual podria ser que se mestre en la terminal al interactuar con la moneda, pero no me tinca tanto
+        //igual podria ser que se muestre en la terminal al interactuar con la moneda, pero no me tinca tanto
         //creo que seria mejor hacer el texto mas sutil
         /*
         setText(""+m.getSerie());
