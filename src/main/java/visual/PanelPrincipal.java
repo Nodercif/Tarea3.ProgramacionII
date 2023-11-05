@@ -11,7 +11,7 @@ public class PanelPrincipal extends JPanel {
     public  PanelPrincipal(){
         super();
         comprador = new PanelComprador();
-        expendedor = new PanelExpendedor(8);
+        expendedor = new PanelExpendedor(6);
         comprador.setExpendedor(expendedor);
         this.setBackground(new Color(255, 255, 204));
         this.setLayout(new GridLayout(1,2));

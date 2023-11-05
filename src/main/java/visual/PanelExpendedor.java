@@ -80,8 +80,8 @@ public class PanelExpendedor extends JPanel {
         add(depositoVuelto);
 
         //panel mensaje de error
-        EDisplayMessage.setHorizontalAlignment(SwingConstants.LEFT);
         EDisplayMessage.setText("Compre producto! :)");
+        EDisplayMessage.setHorizontalAlignment(SwingConstants.LEFT);
         EDisplayMessage.setForeground(new Color(28, 76, 0));
         EDisplayMessage.setFont(new Font("Monospaced", Font.BOLD, 12));
         panelMensajeDeError.setBackground(new Color(131, 242, 67));
@@ -129,7 +129,7 @@ public class PanelExpendedor extends JPanel {
             panelMoneda.remove(moneda);
             moneda = null;
         }catch(NoHayProductoException e){
-            EDisplayMessage.setText("Este producto no se encuentra en la máquina expendedora");
+            EDisplayMessage.setText("No hay Producto en la máquina");
         }catch(PagoInsuficienteException e){
             EDisplayMessage.setText("El pago ingresado es insuficiente");
             repaint();
