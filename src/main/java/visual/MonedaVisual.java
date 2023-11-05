@@ -31,8 +31,8 @@ public class MonedaVisual extends JLabel {
         setHorizontalAlignment(JLabel.RIGHT);
         setVerticalAlignment(JLabel.TOP);
         setForeground(Color.GRAY);
-        setFont(new Font("Arial",Font.BOLD,12));
-        setIconTextGap(-12);
+        setFont(new Font("Arial",Font.BOLD,9));
+        setIconTextGap(-7);
 
         //hacemos un icono nuevo
         ImageIcon iconoMoneda = new ImageIcon(imgPath);

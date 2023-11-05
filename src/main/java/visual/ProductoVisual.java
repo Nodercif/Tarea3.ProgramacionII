@@ -22,7 +22,7 @@ public class ProductoVisual extends JLabel {
         setHorizontalAlignment(JLabel.LEFT);
         setVerticalAlignment(JLabel.BOTTOM);
         setForeground(Color.GRAY);
-        setFont(new Font("Arial",Font.BOLD,12));
+        setFont(new Font("Arial",Font.BOLD,9));
         setIconTextGap(3);
 
         //hacemos un icono nuevo

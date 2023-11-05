@@ -38,8 +38,8 @@ public class PanelDeposito<T> extends JPanel {
             }
             if(itemVisual != null) {
                 itemVisual.getIcon().paintIcon(this, g2d, (int) pos, 0);
-                g.setFont(new Font("Comic Sans",Font.BOLD,10));
-                g.drawString(itemVisual.getText(),(int)pos, 10);
+                g.setFont(new Font("Comic Sans",Font.BOLD,7));
+                g.drawString(itemVisual.getText(),(int)pos+12, 35);
             }
             pos-=step;
         }
