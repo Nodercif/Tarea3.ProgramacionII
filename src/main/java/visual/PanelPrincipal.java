@@ -5,7 +5,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class PanelPrincipal extends JPanel {
-    public PanelPrincipal()  {
+    private PanelComprador comprador;
+    private PanelExpendedor expendedor;
 
     public  PanelPrincipal(){
         super();
