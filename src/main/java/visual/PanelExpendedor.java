@@ -82,7 +82,7 @@ public class PanelExpendedor extends JPanel {
         add(depositoVuelto);
 
         //panel mensaje de error
-        EDisplayMessage.setText("Compre producto! :)");
+        EDisplayMessage.setText("¡Compre un producto! =)");
         EDisplayMessage.setHorizontalAlignment(SwingConstants.LEFT);
         EDisplayMessage.setForeground(new Color(28, 76, 0));
         EDisplayMessage.setFont(new Font("Monospaced", Font.BOLD, 12));
