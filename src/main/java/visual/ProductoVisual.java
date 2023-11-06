@@ -17,7 +17,6 @@ public class ProductoVisual extends JLabel {
         if(p instanceof Snicker) imgPath = "recursos/snicker.png";
         if(p instanceof Super8) imgPath = "recursos/super8.png";
 
-
         setText(""+p.getSerie());
         setHorizontalAlignment(JLabel.LEFT);
         setVerticalAlignment(JLabel.BOTTOM);
@@ -31,6 +30,7 @@ public class ProductoVisual extends JLabel {
         iconoProducto.setImage(iconoProducto.getImage().getScaledInstance(30,30,Image.SCALE_SMOOTH));
         //seteamos el icone de este label al icono que acabamos de crear
         this.setIcon(iconoProducto);
+        repaint();
     }
     public Producto getProducto(){
         return this.producto;}

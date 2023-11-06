@@ -94,6 +94,7 @@ public class PanelComprador extends JPanel {
             if(prod != null){
                 panelMochila.add(prod);
             }
+            repaint();  //Para mover la bebida a mochila.
         }
         //revisar si tratamos de sacar vuelto
         JPanel v = expendedor.getPanelVuelto();

@@ -133,6 +133,7 @@ public class PanelExpendedor extends JPanel {
         if(receptaculo.getComponentCount()<=0) return null;
         ProductoVisual ret = (ProductoVisual) receptaculo.getComponent(0);
         receptaculo.remove(ret);
+        repaint();
         return ret;
     }
     public JPanel getReceptaculo(){return receptaculo;}
@@ -142,7 +143,7 @@ public class PanelExpendedor extends JPanel {
             Moneda m = null;
             if(this.moneda != null) m = this.moneda.getMoneda();
             exp.comprarProducto(m,prod);
-            if(receptaculo.getComponentCount()>0)receptaculo.remove(0);
+            if(receptaculo.getComponentCount()>0) receptaculo.remove(0);
             receptaculo.add(new ProductoVisual(exp.getProducto()));
             EDisplayMessage.setText("¡Gracias por su compra! =)");
         }catch(NoHayProductoException e){
