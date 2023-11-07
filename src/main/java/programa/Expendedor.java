@@ -4,7 +4,7 @@ package programa;
  * La clase programa.Expendedor muestra el funcionamiento de la máquina expendedora.
  **/
 public class Expendedor {
-    private Producto producto;
+    public Deposito<Producto> productosComprados;
     private Deposito<Producto> coca;
     private Deposito<Producto> sprite;
     private Deposito<Producto> fanta;
@@ -26,6 +26,7 @@ public class Expendedor {
         super8 = new Deposito<Producto>();
         monVuelto = new Deposito<Moneda>();
         depositoMonedas = new Deposito<Moneda>();
+        productosComprados = new Deposito<Producto>();
         for (int i = 0; i < numProducto; i++) {
                 coca.addElemento(new CocaCola());
                 sprite.addElemento(new Sprite());
@@ -57,7 +58,7 @@ public class Expendedor {
             throw new PagoInsuficienteException("Pago insuficiente.");
         }
         //se trata de dispensar el producto seleccionado a producto
-        producto = null;
+        Producto producto = null;
         switch (seleccionProducto) {
             case COCA_COLA:
                 producto = coca.getElemento();
@@ -85,7 +86,7 @@ public class Expendedor {
                 monVuelto.addElemento(new Moneda100());
                 vuelto -= 100;
             }
-
+            productosComprados.addElemento(producto);
         }
         else{
             monVuelto.addElemento(moneda);
@@ -105,9 +106,7 @@ public class Expendedor {
      * @return Saca el producto comprado de el receptaculo
      */
     public Producto getProducto(){
-        Producto ret = producto;
-        producto = null;
-        return ret;
+        return productosComprados.getElemento();
     }
 
     /**
@@ -131,6 +130,7 @@ public class Expendedor {
                 return null;
         }
     }
+    public Deposito<Producto> getDepoProducto(){ return productosComprados;}
     public Deposito<Moneda> getDepositoMonedas(){return depositoMonedas;}
     public Deposito<Moneda> getDepoVuelto(){return monVuelto;}
 }

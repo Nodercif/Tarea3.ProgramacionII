@@ -18,7 +18,7 @@ public class PanelExpendedor extends JPanel {
     private PanelDeposito depositoMonedas;
     private MonedaVisual moneda;
     private PanelDeposito depositoVuelto;
-    private JPanel receptaculo;//Deberia poner un mejor nombre. el custion de donde se saca lo que compraste
+    private PanelDeposito receptaculo;//Deberia poner un mejor nombre. el custion de donde se saca lo que compraste
     private JButton cocacolaButton = new JButton();
     private JButton spriteButton = new JButton();
     private JButton fantaButton = new JButton();
@@ -69,8 +69,8 @@ public class PanelExpendedor extends JPanel {
         }
 
         //receptaculo de extaccion
-        receptaculo = new JPanel();
-        receptaculo.setBackground(Color.GRAY);
+        receptaculo = new PanelDeposito<Producto>(exp.getDepoProducto());
+        //receptaculo.setBackground(Color.GRAY);
         receptaculo.setBounds(getX()+120,550,90,60);
         receptaculo.setVisible(true);
         add(receptaculo);
@@ -130,11 +130,9 @@ public class PanelExpendedor extends JPanel {
     }
     public JPanel getPanelVuelto(){return (JPanel) depositoVuelto;}
     public ProductoVisual sacarProducto(){
-        if(receptaculo.getComponentCount()<=0) return null;
-        ProductoVisual ret = (ProductoVisual) receptaculo.getComponent(0);
-        receptaculo.remove(ret);
+        ProductoVisual productoVisual = new ProductoVisual(exp.getProducto());
         repaint();
-        return ret;
+        return productoVisual;
     }
     public JPanel getReceptaculo(){return receptaculo;}
 
@@ -143,8 +141,6 @@ public class PanelExpendedor extends JPanel {
             Moneda m = null;
             if(this.moneda != null) m = this.moneda.getMoneda();
             exp.comprarProducto(m,prod);
-            if(receptaculo.getComponentCount()>0) receptaculo.remove(0);
-            receptaculo.add(new ProductoVisual(exp.getProducto()));
             EDisplayMessage.setText("¡Gracias por su compra! =)");
         }catch(NoHayProductoException e){
             EDisplayMessage.setText("No hay Producto en la máquina");

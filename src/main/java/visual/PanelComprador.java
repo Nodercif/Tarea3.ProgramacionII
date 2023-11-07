@@ -69,9 +69,9 @@ public class PanelComprador extends JPanel {
             int mx = secMon.getX()+panelMonedero.getX();
             int my = secMon.getY()+panelMonedero.getY();
             boolean clickEnLaMoneda = (x>=mx && x<mx+secMon.getWidth() && y>=my && y<my+ secMon.getHeight());
+
             if(clickEnLaMoneda){
                 //seleccionar la moneda para usar en el expendedor
-
                 MonedaVisual monedaDeseleccionada = expendedor.seleccionarMoneda(secMon);
                 panelMonedero.remove(secMon);
                 if(monedaDeseleccionada != null){
@@ -93,8 +93,9 @@ public class PanelComprador extends JPanel {
             ProductoVisual prod = expendedor.sacarProducto();
             if(prod != null){
                 panelMochila.add(prod);
+                panelMochila.revalidate();
+                super.repaint();
             }
-            repaint();  //Para mover la bebida a mochila.
         }
         //revisar si tratamos de sacar vuelto
         JPanel v = expendedor.getPanelVuelto();
