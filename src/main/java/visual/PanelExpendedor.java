@@ -73,12 +73,14 @@ public class PanelExpendedor extends JPanel {
         //receptaculo.setBackground(Color.GRAY);
         receptaculo.setBounds(getX()+120,550,90,60);
         receptaculo.setVisible(true);
+        receptaculo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(receptaculo);
 
         //deposito vuelto
         depositoVuelto = new PanelDeposito<Moneda>(exp.getDepoVuelto());
         depositoVuelto.setBounds(getX()+250,550,90,60);
         depositoVuelto.setVisible(true);
+        depositoVuelto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(depositoVuelto);
 
         //panel mensaje de error

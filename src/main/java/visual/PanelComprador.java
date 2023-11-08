@@ -36,21 +36,25 @@ public class PanelComprador extends JPanel {
         for(int i = 0; i<3; i++){
             MonedaVisual m = new MonedaVisual(new Moneda500());
             m.setVisible(true);
+            m.setCursor(new Cursor(Cursor.HAND_CURSOR));
             panelMonedero.add(m);
         }
         for(int i = 0; i<4; i++){
             MonedaVisual m = new MonedaVisual(new Moneda100());
             m.setVisible(true);
+            m.setCursor(new Cursor(Cursor.HAND_CURSOR));
             panelMonedero.add(m);
         }
         for(int i = 0; i<3; i++){
             MonedaVisual m = new MonedaVisual(new Moneda1500());
             m.setVisible(true);
+            m.setCursor(new Cursor(Cursor.HAND_CURSOR));
             panelMonedero.add(m);
         }
         for(int i = 0; i<3; i++){
             MonedaVisual m = new MonedaVisual(new Moneda1000());
             m.setVisible(true);
+            m.setCursor(new Cursor(Cursor.HAND_CURSOR));
             panelMonedero.add(m);
         }
         panelMonedero.setVisible(true);
@@ -74,8 +78,10 @@ public class PanelComprador extends JPanel {
                 //seleccionar la moneda para usar en el expendedor
                 MonedaVisual monedaDeseleccionada = expendedor.seleccionarMoneda(secMon);
                 panelMonedero.remove(secMon);
+                secMon.setCursor(Cursor.getDefaultCursor());
                 if(monedaDeseleccionada != null){
                     panelMonedero.add(monedaDeseleccionada);
+                    monedaDeseleccionada.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 }
                 panelMonedero.revalidate();
                 super.repaint();
@@ -109,6 +115,7 @@ public class PanelComprador extends JPanel {
             MonedaVisual m = expendedor.sacarMoneda();
             if(m!=null) {
                 panelMonedero.add(m);
+                m.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 panelMonedero.revalidate();
                 super.repaint();
             }
