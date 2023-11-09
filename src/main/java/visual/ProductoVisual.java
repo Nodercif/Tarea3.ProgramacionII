@@ -27,7 +27,7 @@ public class ProductoVisual extends JLabel {
         //hacemos un icono nuevo
         ImageIcon iconoProducto = new ImageIcon(imgPath);
         //escalamos la imagen del icono
-        iconoProducto.setImage(iconoProducto.getImage().getScaledInstance(30,30,Image.SCALE_SMOOTH));
+        iconoProducto.setImage(iconoProducto.getImage().getScaledInstance(40,40,Image.SCALE_SMOOTH));
         //seteamos el icone de este label al icono que acabamos de crear
         this.setIcon(iconoProducto);
         repaint();
