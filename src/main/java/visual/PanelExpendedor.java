@@ -66,7 +66,7 @@ public class PanelExpendedor extends JPanel {
         constraints.gridy=0; constraints.gridx=0;
         constraints.weightx=1; constraints.weighty=1;
         constraints.fill = GridBagConstraints.BOTH;
-        constraints.insets = new Insets(5,0,5,0);
+        constraints.insets = new Insets(3,0,3,0);
         for(SeleccionProducto tipo : SeleccionProducto.values()){
             PanelDeposito<Producto> dep = new PanelDeposito<Producto>(exp.getDeposito(tipo));
             dep.setBackground(new Color(70,160,220));
