@@ -15,6 +15,7 @@ public class PanelExpendedor extends JPanel {
     private JPanel panelDepositos;
     private JPanel  panelBotones;
     private JPanel panelMensajeDeError = new JPanel();
+    private JPanel fondoMaquina = new JPanel();
     private PanelDeposito depositoMonedas;
     private MonedaVisual moneda;
     private PanelDeposito depositoVuelto;
@@ -34,14 +35,19 @@ public class PanelExpendedor extends JPanel {
         this.setLayout(null);
         //moneda seleccionada
         panelMoneda = new JPanel(new GridLayout());
-        panelMoneda.setBounds(getX(), 300, 60, 60);
+        panelMoneda.setBounds(15, 190, 50, 60);
+        panelMoneda.setBackground(new Color(0, 0, 68));
         this.add(panelMoneda);
         //panel de botones
         panelBotones = new JPanel(new GridLayout(5,1));
-        panelBotones.setBounds(getX()+320, 100, 150, 350);
-        panelBotones.setBackground(Color.GRAY);
+        panelBotones.setBounds(getX()+310, 100, 150, 350);
         panelBotones.setVisible(true);
         this.add(panelBotones);
+        JPanel bordePanel = new JPanel();
+        bordePanel.setBounds(305, 95, 160, 360);
+        bordePanel.setBackground(new Color(10, 10, 10));
+        bordePanel.setVisible(true);
+        add(bordePanel);
 
         //botones
         buttonSetup(cocacolaButton,SeleccionProducto.COCA_COLA,"Coca-Cola");
@@ -49,10 +55,10 @@ public class PanelExpendedor extends JPanel {
         buttonSetup(fantaButton,SeleccionProducto.FANTA,"Fanta");
         buttonSetup(snickerButton,SeleccionProducto.SNICKER,"Snicker");
         buttonSetup(super8Button,SeleccionProducto.SUPER8,"Super8");
-
+        
         //panel de depositos
         panelDepositos = new JPanel(new GridBagLayout());
-        panelDepositos.setBounds(100,70,200,300);
+        panelDepositos.setBounds(90,70,200,300);
         Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
         panelDepositos.setBorder(border);
         this.add(panelDepositos);
@@ -71,14 +77,14 @@ public class PanelExpendedor extends JPanel {
         //receptaculo de extaccion
         receptaculo = new PanelDeposito<Producto>(exp.getDepoProducto());
         //receptaculo.setBackground(Color.GRAY);
-        receptaculo.setBounds(getX()+120,550,90,60);
+        receptaculo.setBounds(getX()+120,500,90,60);
         receptaculo.setVisible(true);
         receptaculo.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(receptaculo);
 
         //deposito vuelto
         depositoVuelto = new PanelDeposito<Moneda>(exp.getDepoVuelto());
-        depositoVuelto.setBounds(getX()+250,550,90,60);
+        depositoVuelto.setBounds(getX()+250,500,90,60);
         depositoVuelto.setVisible(true);
         depositoVuelto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(depositoVuelto);
@@ -86,12 +92,23 @@ public class PanelExpendedor extends JPanel {
         //panel mensaje de error
         EDisplayMessage.setText("¡Compre un producto! =)");
         EDisplayMessage.setHorizontalAlignment(SwingConstants.LEFT);
-        EDisplayMessage.setForeground(new Color(28, 76, 0));
+        EDisplayMessage.setForeground(new Color(4, 68, 0));
         EDisplayMessage.setFont(new Font("Monospaced", Font.BOLD, 12));
         panelMensajeDeError.setBackground(new Color(131, 242, 67));
-        panelMensajeDeError.setBounds(50, 400, 250, 30);
+        panelMensajeDeError.setBounds(45, 400, 250, 30);
         panelMensajeDeError.add(EDisplayMessage);
         add(panelMensajeDeError);
+
+        //Fondo maquina expendedora
+        fondoMaquina.setBackground(new Color(18,52,113));
+        fondoMaquina.setBounds(5, 40, 470, 560);
+        add(fondoMaquina);
+        fondoMaquina.setVisible(true);
+        JPanel bordeFondoMaquina = new JPanel();
+        bordeFondoMaquina.setBounds(0, 35, 480,570);
+        bordeFondoMaquina.setBackground(new Color(0, 0, 68));
+        add(bordeFondoMaquina);
+
     }
 
     private void buttonSetup(JButton button, SeleccionProducto tipo, String nombre){
