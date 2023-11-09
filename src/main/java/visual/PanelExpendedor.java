@@ -35,16 +35,16 @@ public class PanelExpendedor extends JPanel {
         this.setLayout(null);
         //moneda seleccionada
         panelMoneda = new JPanel(new GridLayout());
-        panelMoneda.setBounds(15, 190, 50, 60);
+        panelMoneda.setBounds(15, 190, 58, 60);
         panelMoneda.setBackground(new Color(0, 0, 68));
         this.add(panelMoneda);
         //panel de botones
         panelBotones = new JPanel(new GridLayout(5,1));
-        panelBotones.setBounds(getX()+310, 100, 150, 350);
+        panelBotones.setBounds(getX()+310, 78, 150, 350);
         panelBotones.setVisible(true);
         this.add(panelBotones);
         JPanel bordePanel = new JPanel();
-        bordePanel.setBounds(305, 95, 160, 360);
+        bordePanel.setBounds(305, 73, 160, 360);
         bordePanel.setBackground(new Color(10, 10, 10));
         bordePanel.setVisible(true);
         add(bordePanel);
@@ -55,10 +55,10 @@ public class PanelExpendedor extends JPanel {
         buttonSetup(fantaButton,SeleccionProducto.FANTA,"Fanta");
         buttonSetup(snickerButton,SeleccionProducto.SNICKER,"Snicker");
         buttonSetup(super8Button,SeleccionProducto.SUPER8,"Super8");
-        
+
         //panel de depositos
         panelDepositos = new JPanel(new GridBagLayout());
-        panelDepositos.setBounds(90,70,200,300);
+        panelDepositos.setBounds(80,70,210,370);
         Border border = BorderFactory.createLineBorder(Color.BLACK, 2);
         panelDepositos.setBorder(border);
         this.add(panelDepositos);
@@ -95,7 +95,7 @@ public class PanelExpendedor extends JPanel {
         EDisplayMessage.setForeground(new Color(4, 68, 0));
         EDisplayMessage.setFont(new Font("Monospaced", Font.BOLD, 12));
         panelMensajeDeError.setBackground(new Color(131, 242, 67));
-        panelMensajeDeError.setBounds(45, 400, 250, 30);
+        panelMensajeDeError.setBounds(45, 450, 250, 30);
         panelMensajeDeError.add(EDisplayMessage);
         add(panelMensajeDeError);
 
